@@ -59,7 +59,7 @@ echo "set SOURCE $domain" >> $domain$stamp.resource
 echo "run" >> $domain$stamp.resource
 echo ""
 echo "use recon/domains-hosts/brute_hosts" >> $domain$stamp.resource
-echo "set WORDLIST /usr/share/recon-ng/data/sorted_knock_dnsrecon_fierce_recon-ng.txt" >> $domain$stamp.resource
+echo "set WORDLIST sorted_knock_dnsrecon_fierce_recon-ng.txt" >> $domain$stamp.resource
 echo "set SOURCE $domain" >> $domain$stamp.resource
 echo "run" >> $domain$stamp.resource
 echo ""
@@ -72,11 +72,11 @@ echo "set SOURCE $domain" >> $domain$stamp.resource
 echo "run" >> $domain$stamp.resource
 echo ""
 echo "use reporting/csv" >> $domain$stamp.resource
-echo "set FILENAME /root/Desktop/$domain$stamp.csv" >> $domain$stamp.resource
+echo "set FILENAME $domain$stamp.csv" >> $domain$stamp.resource
 echo "run" >> $domain$stamp.resource
 echo ""
 echo "use reporting/list" >> $domain$stamp.resource
-echo "set FILENAME /root/Desktop/$domain$stamp.lst" >> $domain$stamp.resource
+echo "set FILENAME $domain$stamp.lst" >> $domain$stamp.resource
 echo "set COLUMN host" >> $domain$stamp.resource
 echo "run" >> $domain$stamp.resource
 echo ""
@@ -87,5 +87,7 @@ echo ""
 # python was giving some weird errors when trying to call python /opt/recon-ng/recon-ng so this workaround worked.
 
 path=$(pwd)
-cd /usr/share/recon-ng
+
+#we are running from inside the same directory as recon-ng
+#cd /usr/share/recon-ng
 ./recon-ng --no-check -r $path/$domain$stamp.resource

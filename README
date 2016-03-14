@@ -1,3 +1,6 @@
+'MAC OS X EDITION'
+This fork is to make it work with OS X. copy these files directly into the recon-ng folder and run from there.
+
 Script to enumerate subdomains, leveraging recon-ng. Uses google scraping, bing scraping, baidu scraping, yahoo scarping, netcraft, and bruteforces to find subdomains. Plus resolves to IP.:
  
 Usage:
